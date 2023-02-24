@@ -1,25 +1,28 @@
 import PropTypes from 'prop-types';
 import Notification from 'components/notification/Notification';
-export const Statistics = ({ good, neutral, bad, total, PositiveFeedbackPercentage }) => {
+import { OptionsItem, OptionsList, NotificationMessage } from './Statistics.styled';
+export const Statistics = ({ good, neutral, bad, total, PositiveFeedbackPercentage, id }) => {
     return (
         <>
             {total > 0 && (
-                <ul>
-                    <li>Good: {good}</li>
-                    <li>Neutral: {neutral}</li>
-                    <li>Bad: {bad}</li>
-                    <li>Total: {total}</li>
-                    <li> Positive feedback: {PositiveFeedbackPercentage} %</li>
-                </ul>
+                <OptionsList>
+                    <OptionsItem key={id}>Good: {good}</OptionsItem>
+                    <OptionsItem key={id}>Neutral: {neutral}</OptionsItem>
+                    <OptionsItem key={id}>Bad: {bad}</OptionsItem>
+                    <OptionsItem key={id}>Total: {total}</OptionsItem>
+                    <OptionsItem key={id}> Positive feedback: {PositiveFeedbackPercentage}%</OptionsItem>
+                </OptionsList>
             )
             }
-            {total === 0 && <Notification message="There is no feedback"></Notification>}
+            <NotificationMessage>
+                {total === 0 && <Notification message="There is no feedback"></Notification>}
+                </NotificationMessage>
         </>
     )
 }
 Statistics.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  total: PropTypes.func.isRequired,
-  PositiveFeedbackPercentage: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  total: PropTypes.number.isRequired,
+  PositiveFeedbackPercentage: PropTypes.string.isRequired,
 };
     
