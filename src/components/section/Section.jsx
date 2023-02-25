@@ -4,11 +4,11 @@ export const Section = ({ title, children }) => {
     return (
         <section>
             <Title>{title}</Title>
-            {children}
+            <div>{children}</div>
         </section>
     )
 }
 Section.propTypes = {
     title: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node.isRequired,
 }
