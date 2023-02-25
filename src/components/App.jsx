@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Section } from "components/section/Section";
-import { FeedbackOptions } from "components/feedbackoptions/FeedbackOptions";
+import { FeedbackOptions } from "components/Feedbackoptions/FeedbackOptions";
 import { Statistics } from "components/statistics/Statistics";
 import Notification from 'components/notification/Notification';
 import {NotificationMessage} from './App.styled';
