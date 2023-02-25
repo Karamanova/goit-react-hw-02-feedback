@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { Section } from "components/section/Section";
-import { FeedbackOptions } from "components/feedback/FeedbackOptions";
-import { Statistics } from "components/statistics/Statistics";
-import { FEEDBACK_OPTIONS } from 'data/constants';
+import { Section } from "components/Section/Section";
+import { FeedbackOptions } from "components/FeedbackOptions/FeedbackOptions";
+import { Statistics } from "components/Statistics/Statistics";
+import Notification from 'components/Notification/Notification';
+import {NotificationMessage} from './App.styled';
 import { Container } from './App.styled';
 export class App extends Component {
   state = {
@@ -29,7 +30,7 @@ export class App extends Component {
     const PositiveFeedbackPercentage = this.countPositiveFeedbackPercentage()
     return <Container>
       <Section title="Please leave feedback">
-        <FeedbackOptions options={FEEDBACK_OPTIONS} onLeaveFeedback={this.handleFeedback}>
+        <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleFeedback}>
           </FeedbackOptions>
       </Section>
       <Section title="Statistics">
@@ -39,7 +40,10 @@ export class App extends Component {
           bad={bad}
           total={total}
           PositiveFeedbackPercentage={PositiveFeedbackPercentage.toFixed(0)}>
-          </Statistics>
+        </Statistics>
+        <NotificationMessage>
+                {total === 0 && <Notification message="There is no feedback"></Notification>}
+                </NotificationMessage>
       </Section>
     </Container>
       

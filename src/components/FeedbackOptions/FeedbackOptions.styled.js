@@ -30,4 +30,3 @@ justify-content: space-between;
 padding: 22px;
 margin: 0;
 `;
-
