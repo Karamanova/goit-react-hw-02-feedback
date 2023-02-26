@@ -22,4 +22,3 @@ Statistics.propTypes = {
   total: PropTypes.number.isRequired,
   PositiveFeedbackPercentage: PropTypes.string.isRequired,
 };
-    

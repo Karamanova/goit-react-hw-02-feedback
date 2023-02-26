@@ -4,7 +4,7 @@ export const Section = ({ title, children }) => {
     return (
         <section>
             <Title>{title}</Title>
-            {children}
+            <div>{children}</div>
         </section>
     )
 }
